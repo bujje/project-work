@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+// Prefer explicit env var. In production on Vercel, set REACT_APP_API_URL to your API base (e.g., https://your-api.example.com/api)
+const API_URL = process.env.REACT_APP_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000/api');
 
 const ApiClient = axios.create({
   baseURL: API_URL,
